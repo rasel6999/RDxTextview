@@ -18,6 +18,7 @@
     Emails
  ```
 
+<img src="https://i.ibb.co/KrvY58g/Whats-App-Image-2021-08-02-at-11-59-53-PM.jpg"/>
 
 
 <br/><h3>Support all pre-loaded html tags</h3>
