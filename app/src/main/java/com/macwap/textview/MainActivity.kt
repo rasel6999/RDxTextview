@@ -1,8 +1,7 @@
-package com.macwap.rasel
+package com.macwap.textview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.macwap.rasel.rdxTextView.*
@@ -18,11 +17,11 @@ class MainActivity : AppCompatActivity() {
             ModeEmail,ModePhone,/*ModeImageDisable*/)
 
        ///set custom color for mode if you need
-        rdxTextView?.mentionModeColor = ContextCompat.getColor(this,R.color.teal_700)
-        rdxTextView?.hashTagModeColor = ContextCompat.getColor(this,R.color.purple_700)
-        rdxTextView?.userBbModeColor = ContextCompat.getColor(this,R.color.teal_200)
-        rdxTextView?.urlModeColor = ContextCompat.getColor(this,R.color.blue)
-        rdxTextView?.emailModeColor = ContextCompat.getColor(this,R.color.blue)
+        rdxTextView?.mentionModeColor = ContextCompat.getColor(this, R.color.teal_700)
+        rdxTextView?.hashTagModeColor = ContextCompat.getColor(this, R.color.purple_700)
+        rdxTextView?.userBbModeColor = ContextCompat.getColor(this, R.color.teal_200)
+        rdxTextView?.urlModeColor = ContextCompat.getColor(this, R.color.blue)
+        rdxTextView?.emailModeColor = ContextCompat.getColor(this, R.color.blue)
 
 
         /// after intalize set text.. remember set text after mode* and color setup
