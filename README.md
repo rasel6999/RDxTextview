@@ -1,5 +1,7 @@
 <h1>RDxTextview  is the Advanced Android TextView with super optimize</h1>
    <br/><h3>Support Bulletin Board Code (BBCode) </h3>
+    <a href="https://jitpack.io/#rasel6999/RDxTextview"><img src="https://jitpack.io/v/rasel6999/RDxTextview.svg"/></a>
+   
    
 ```bbcode 
     [b]  Bold text  [/b]
