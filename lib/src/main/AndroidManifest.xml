@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.macwap.rdxrasel">
+
+    <application
+        android:label=""
+        android:supportsRtl="true"
+        tools:ignore="RtlEnabled">
+
+    </application>
+
+</manifest>

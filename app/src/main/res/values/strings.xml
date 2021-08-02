@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">RDxTextview</string>
+    <string name="mainText"><![CDATA[Hi my name is [user=rasel]RASEL[/user]. i\'m [b]Android[/b]  [i]Mobile[/i] [u]Developer[/u][br]
+[b][color=#FF9800]Lets see some example[/color][/b]
+
+
+
+[br] [b]Mention[/b]  :   @rasel
+[br] [b]Hashtag[/b]  :   #macwap
+[br] [b][url] Tag[/b]  :   [url=http://macwap.com]click url[/url]
+[br] [b][user] Tag[/b]  :   [user=number or name] ahil  [/user]
+[br] [b] [color] tag [/b]  :   [color=#589181] Text Color is #589181 [/color]
+[br]
+[br] [b] Bold text [/b] [b] bold [/b]
+[br] [b] Italic text [/b] [i] italic [/i]
+[br] [b] Underline text [/b] [u] underline [/u]
+[br] [b] Big text [/b] [big] big [/big]
+[br] [b] Blockquote text [/b] [quote] quote [/quote]
+
+[br] [b][i]Phone number matching mode [/i][/b][br]
+         +968-98597040000
+[br][br] [b][i]Email  matching mode [/i][/b][br]
+admin@macwap.com
+
+
+[br][br][br] [br] [b]img Tag[/b] [img]https://i.pinimg.com/originals/37/1c/43/371c43826bb5c597e03d567c6fe7c2d7.png[/img]
+
+
+
+ ]]></string>
+</resources>
