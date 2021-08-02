@@ -3,7 +3,6 @@
     package="com.macwap.rdxrasel">
 
     <application
-        android:label=""
         android:supportsRtl="true"
         tools:ignore="RtlEnabled">
 
