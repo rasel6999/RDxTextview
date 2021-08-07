@@ -64,10 +64,11 @@ The current minSDK version is API level 14.
  <h2>Setup and Usage</h2>
 
 <b>Gradle: in app</b><br/>
-
     <a href="https://jitpack.io/#rasel6999/RDxTextview"><img src="https://jitpack.io/v/rasel6999/RDxTextview.svg"/></a>
 
-```gradle 
+
+
+```xml 
 
  implementation 'com.github.rasel6999:RDxTextview:{latest version ^}'
 ``` 
