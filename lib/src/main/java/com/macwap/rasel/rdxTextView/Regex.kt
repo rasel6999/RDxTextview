@@ -22,6 +22,9 @@ internal val BB_URL_PATTERN  	= "\\[url=(.*?)](.*?)\\[/url]".toRegex()
 internal val IMG_URL_PATTERN  	= "\\[img](.*?)\\[/img]".toRegex()
 internal val BB_BIG_PATTERN 	= "\\[big](.*?)\\[/big]".toRegex()
 internal val BB_COLOR_PATTERN  	= "\\[color=(.*?)](.*?)\\[/color]".toRegex()
+internal val BB_POST_PATTERN  	= "\\[post=(.*?)](.*?)\\[/post]".toRegex()
+internal val BB_PAGE_PATTERN  	= "\\[page=(.*?)](.*?)\\[/page]".toRegex()
+internal val BB_GROUP_PATTERN  	= "\\[group=(.*?)](.*?)\\[/group]".toRegex()
 @RequiresApi(Build.VERSION_CODES.FROYO)
 internal val EMAIL_PATTERN: Pattern = Patterns.EMAIL_ADDRESS
 

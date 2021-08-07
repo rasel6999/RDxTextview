@@ -2,6 +2,7 @@
 
 package com.macwap.rasel.rdxTextView
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
@@ -13,9 +14,11 @@ import android.text.style.ClickableSpan
 import android.text.style.URLSpan
 import android.util.AttributeSet
 import android.view.View
+import android.widget.TextView
+import androidx.annotation.RequiresApi
 
-class RDxTextView(context: Context, attrs: AttributeSet? = null) :
-    androidx.appcompat.widget.AppCompatTextView(context, attrs) {
+@SuppressLint("AppCompatCustomView")
+class RDxTextView(context: Context, attrs: AttributeSet? = null) : TextView(context,attrs) {
 
     companion object {
         private const val DEFAULT_COLOR = Color.RED
@@ -37,6 +40,7 @@ class RDxTextView(context: Context, attrs: AttributeSet? = null) :
         highlightColor = Color.TRANSPARENT
     }
 
+    @RequiresApi(Build.VERSION_CODES.FROYO)
     override fun setText(text: CharSequence?, type: BufferType) {
         if (text?.isEmpty() == true || modes.isNullOrEmpty()) {
             super.setText(text, type)
@@ -47,7 +51,7 @@ class RDxTextView(context: Context, attrs: AttributeSet? = null) :
         val sequence: CharSequence = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             Html.fromHtml(
                 html,
-                Html.FROM_HTML_MODE_COMPACT,
+                Html.FROM_HTML_MODE_LEGACY,
                 URLImageParser(this, context, this),
                 null
             )
@@ -64,9 +68,10 @@ class RDxTextView(context: Context, attrs: AttributeSet? = null) :
         }
 
 
-        movementMethod = LinkMovementMethod.getInstance()
+       movementMethod = LinkMovementMethod.getInstance()
         super.setText(strBuilder, type)
-        movementMethod = LinkMovementMethod.getInstance()
+       movementMethod = LinkMovementMethod.getInstance()
+
     }
 
     fun addMode(vararg modes: Mode) {
@@ -74,6 +79,7 @@ class RDxTextView(context: Context, attrs: AttributeSet? = null) :
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.FROYO)
     private fun bbCode(string: CharSequence?): String? {
         var text = string
         modes.forEach { mode ->
@@ -121,6 +127,21 @@ class RDxTextView(context: Context, attrs: AttributeSet? = null) :
                     text = text?.replace(IMAGE_PATTERN) { "&empty;" }
 
                 }
+                ModePost -> {
+                    text = text?.replace(BB_POST_PATTERN) {
+                        "<a href=\"bbPost://{${it.value}},{${it.groupValues[1]}},{${it.groupValues[2]}}\">${it.groupValues[2]}</a>"
+                    }
+            }
+                ModePage -> {
+                    text = text?.replace(BB_PAGE_PATTERN) {
+                        "<a href=\"bbPage://{${it.value}},{${it.groupValues[1]}},{${it.groupValues[2]}}\">${it.groupValues[2]}</a>"
+                    }
+            }
+                ModeGroup -> {
+                    text = text?.replace(BB_GROUP_PATTERN) {
+                        "<a href=\"bbGroup://{${it.value}},{${it.groupValues[1]}},{${it.groupValues[2]}}\">${it.groupValues[2]}</a>"
+                    }
+            }
                 ModeBBCode -> {
                     text = text?.replace(BB_BOLD_PATTERN) { "<b>${it.groupValues[1]}</b>" }
                     text = text?.replace(BB_ITALIC_PATTERN) { "<i>${it.groupValues[1]}</i>" }
@@ -129,8 +150,9 @@ class RDxTextView(context: Context, attrs: AttributeSet? = null) :
                         text?.replace(BB_QUOTE_PATTERN) { "<blockquote>${it.groupValues[1]}</blockquote>" }
                     text = text?.replace(BB_BIG_PATTERN) { "<big>${it.groupValues[1]}</big>" }
                     text = (text as String?)?.replace("[br]", "<br/>")
-                    text =
-                        text?.replace(BB_COLOR_PATTERN) { "<font color=\"${it.groupValues[1]}\">${it.groupValues[2]}</font>" }
+                    text = text?.replace(BB_COLOR_PATTERN) { "<font color=\"${it.groupValues[1]}\">${it.groupValues[2]}</font>" }
+
+
 
                 }
                 ModeBBImg -> {
@@ -173,6 +195,18 @@ class RDxTextView(context: Context, attrs: AttributeSet? = null) :
                         tp.color = urlBbModeColor ?: defaultModeColor
 
                     }
+                    "bbPage" -> {
+                    tp.color = urlBbModeColor ?: defaultModeColor
+
+                }
+                    "bbGroup" -> {
+                    tp.color = urlBbModeColor ?: defaultModeColor
+
+                }
+                    "bbPost" -> {
+                    tp.color = urlBbModeColor ?: defaultModeColor
+
+                }
                     "http", "https" -> {
                         tp.color = urlModeColor ?: defaultModeColor
 
@@ -254,6 +288,21 @@ class RDxTextView(context: Context, attrs: AttributeSet? = null) :
                             RDxLinkItem(start, end, value1, "", value2, value3, ModeBBUrl)
 
                     }
+                    "bbPost" -> {
+                    autoLinkItem =
+                        RDxLinkItem(start, end, value1, "", value2, value3, ModePost)
+
+                }
+                    "bbGroup" -> {
+                    autoLinkItem =
+                        RDxLinkItem(start, end, value1, "", value2, value3, ModeGroup)
+
+                }
+                    "bbPage" -> {
+                    autoLinkItem =
+                        RDxLinkItem(start, end, value1, "", value2, value3, ModePage)
+
+                }
                     "email" -> {
                         autoLinkItem = RDxLinkItem(start, end, value1, "", "", value1, ModeEmail)
 
