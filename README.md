@@ -70,7 +70,7 @@ The current minSDK version is API level 14.
 
 ```xml 
 
- implementation 'com.github.rasel6999:RDxTextview:{latest version ^}'
+ implementation 'com.github.rasel6999:RDxTextview:{latest version}'
 ``` 
 add maven if not availeble?
 
